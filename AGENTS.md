@@ -6,13 +6,13 @@
 
 ## File-Scoped Commands
 
-| Task         | Command                                                        |
-| ------------ | -------------------------------------------------------------- |
-| Lint         | `npx oxlint src/routes/index.tsx`                              |
-| Test         | `npm run test -- src/routes/-index.test.tsx --passWithNoTests` |
-| Format check | `npx oxfmt --check src/routes/index.tsx`                       |
-| Format write | `npx oxfmt src/routes/index.tsx`                               |
-| Typecheck    | `npx tsc --noEmit --pretty false -p tsconfig.json`             |
+| Task         | Command                                            |
+| ------------ | -------------------------------------------------- |
+| Lint         | `npx oxlint src/routes/index.tsx`                  |
+| Test         | `npm run test -- src/routes/-index.test.tsx`       |
+| Format check | `npx oxfmt --check src/routes/index.tsx`           |
+| Format write | `npx oxfmt src/routes/index.tsx`                   |
+| Typecheck    | `npx tsc --noEmit --pretty false -p tsconfig.json` |
 
 ## Coding Workflow
 

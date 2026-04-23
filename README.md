@@ -72,7 +72,7 @@ public/             # static assets
 
 ```bash
 npx oxlint src/routes/index.tsx
-npm run test -- src/routes/-index.test.tsx --passWithNoTests
+npm run test -- src/routes/-index.test.tsx
 npx oxfmt --check src/routes/index.tsx
 npx oxfmt src/routes/index.tsx
 npx tsc --noEmit --pretty false -p tsconfig.json

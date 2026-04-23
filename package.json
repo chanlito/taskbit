@@ -13,7 +13,7 @@
     "lint": "oxlint",
     "format": "oxfmt --check .",
     "check": "oxfmt . && oxlint --fix",
-    "precommit": "npm run format && npm run lint && npm run test -- --passWithNoTests",
+    "precommit": "npm run format && npm run lint && npm run test",
     "prepare": "simple-git-hooks"
   },
   "dependencies": {
