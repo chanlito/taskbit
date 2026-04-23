@@ -38,7 +38,8 @@ describe('oxc tooling', () => {
           private: true,
           type: 'module',
           scripts: {
-            lint: `${JSON.stringify(path.join(repoRoot, 'node_modules', '.bin', 'oxfmt'))} --check . && ${JSON.stringify(path.join(repoRoot, 'node_modules', '.bin', 'oxlint'))}`,
+            lint: `${JSON.stringify(path.join(repoRoot, 'node_modules', '.bin', 'oxlint'))}`,
+            format: `${JSON.stringify(path.join(repoRoot, 'node_modules', '.bin', 'oxfmt'))} --check .`,
             check: `${JSON.stringify(path.join(repoRoot, 'node_modules', '.bin', 'oxfmt'))} . && ${JSON.stringify(path.join(repoRoot, 'node_modules', '.bin', 'oxlint'))} --fix`,
           },
         },
@@ -68,9 +69,9 @@ describe('oxc tooling', () => {
       ].join('\n'),
     )
 
-    const lintFailure = runCommand(tempDir, ['run', 'lint'])
-    expect(lintFailure.status).not.toBe(0)
-    expect(lintFailure.stdout).toContain('Format issues found')
+    const formatFailure = runCommand(tempDir, ['run', 'format'])
+    expect(formatFailure.status).not.toBe(0)
+    expect(formatFailure.stdout).toContain('Format issues found')
 
     const checkSuccess = runCommand(tempDir, ['run', 'check'])
     expect(checkSuccess.status).toBe(0)
@@ -93,6 +94,9 @@ describe('oxc tooling', () => {
         '',
       ].join('\n'),
     )
+
+    const formatSuccess = runCommand(tempDir, ['run', 'format'])
+    expect(formatSuccess.status).toBe(0)
 
     const lintSuccess = runCommand(tempDir, ['run', 'lint'])
     expect(lintSuccess.status).toBe(0)

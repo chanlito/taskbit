@@ -10,7 +10,7 @@
     "build": "vite build",
     "preview": "vite preview --port 6910",
     "test": "vitest run",
-    "lint": "oxfmt --check . && oxlint",
+    "lint": "oxlint",
     "format": "oxfmt --check .",
     "check": "oxfmt . && oxlint --fix",
     "precommit": "npm run format && npm run lint && npm run test -- --passWithNoTests",

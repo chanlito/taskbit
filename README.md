@@ -37,7 +37,7 @@ npm run dev      # start Vite dev server on port 6900
 npm run build    # create a production build
 npm run preview  # preview the production build
 npm run test     # run Vitest
-npm run lint     # check formatting and run Oxlint
+npm run lint     # run Oxlint only
 npm run format   # check formatting with Oxfmt
 npm run check    # write formatting/import fixes, then run Oxlint with --fix
 npm run precommit # run the same checks used by the pre-commit hook
