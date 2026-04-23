@@ -12,8 +12,9 @@
     "test": "vitest run",
     "lint": "oxlint",
     "format": "oxfmt --check .",
+    "typecheck": "tsc --noEmit --pretty false -p tsconfig.json",
     "check": "oxfmt . && oxlint --fix",
-    "precommit": "npm run format && npm run lint && npm run test",
+    "precommit": "npm run format && npm run lint && npm run typecheck && npm run test",
     "prepare": "simple-git-hooks"
   },
   "dependencies": {

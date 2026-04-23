@@ -39,8 +39,9 @@ npm run preview  # preview the production build
 npm run test     # run Vitest
 npm run lint     # run Oxlint only
 npm run format   # check formatting with Oxfmt
+npm run typecheck # run TypeScript typechecking
 npm run check    # write formatting/import fixes, then run Oxlint with --fix
-npm run precommit # run the same checks used by the pre-commit hook
+npm run precommit # run format, lint, typecheck, and tests
 ```
 
 ## Project Structure
@@ -75,5 +76,5 @@ npx oxlint src/routes/index.tsx
 npm run test -- src/routes/-index.test.tsx
 npx oxfmt --check src/routes/index.tsx
 npx oxfmt src/routes/index.tsx
-npx tsc --noEmit --pretty false -p tsconfig.json
+npm run typecheck
 ```
