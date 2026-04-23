@@ -20,6 +20,8 @@ Install dependencies:
 npm install
 ```
 
+`npm install` also installs the repo's Git hooks through the `prepare` script.
+
 Start the dev server:
 
 ```bash
@@ -38,6 +40,7 @@ npm run test     # run Vitest
 npm run lint     # run ESLint
 npm run format   # check formatting with Prettier
 npm run check    # write formatting fixes, then run ESLint with --fix
+npm run precommit # run the same checks used by the pre-commit hook
 ```
 
 ## Project Structure

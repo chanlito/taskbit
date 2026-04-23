@@ -12,7 +12,9 @@
     "test": "vitest run",
     "lint": "eslint",
     "format": "prettier --check .",
-    "check": "prettier --write . && eslint --fix"
+    "check": "prettier --write . && eslint --fix",
+    "precommit": "npm run format && npm run lint && npm run test -- --passWithNoTests",
+    "prepare": "simple-git-hooks"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
@@ -38,6 +40,7 @@
     "@vitejs/plugin-react": "^6.0.1",
     "jsdom": "^28.1.0",
     "prettier": "^3.8.1",
+    "simple-git-hooks": "^2.13.1",
     "typescript": "^5.7.2",
     "vite": "^8.0.0",
     "vitest": "^3.0.5"
@@ -47,5 +50,8 @@
       "esbuild",
       "lightningcss"
     ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npm run precommit"
   }
 }
