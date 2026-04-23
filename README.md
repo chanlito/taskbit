@@ -41,7 +41,8 @@ npm run lint     # run Oxlint only
 npm run format   # check formatting with Oxfmt
 npm run typecheck # run TypeScript typechecking
 npm run check    # write formatting/import fixes, then run Oxlint with --fix
-npm run precommit # run format, lint, typecheck, and tests
+npm run precommit # run fast commit checks: format and lint
+npm run prepush   # run full push checks: typecheck, tests, and build
 ```
 
 ## Project Structure

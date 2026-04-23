@@ -14,7 +14,8 @@
     "format": "oxfmt --check .",
     "typecheck": "tsc --noEmit --pretty false -p tsconfig.json",
     "check": "oxfmt . && oxlint --fix",
-    "precommit": "npm run format && npm run lint && npm run typecheck && npm run test",
+    "precommit": "npm run format && npm run lint",
+    "prepush": "npm run typecheck && npm run test && npm run build",
     "prepare": "simple-git-hooks"
   },
   "dependencies": {
@@ -49,7 +50,8 @@
     "vitest": "^3.0.5"
   },
   "simple-git-hooks": {
-    "pre-commit": "npm run precommit"
+    "pre-commit": "npm run precommit",
+    "pre-push": "npm run prepush"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
