@@ -1,21 +1,20 @@
 // @vitest-environment jsdom
 
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-import { HomePage } from '#/components/home-page'
+import { renderRoute } from '#/test/router-test-utils'
 
 describe('home route', () => {
-  it('renders the welcome content', () => {
-    render(<HomePage />)
+  it('renders the welcome content', async () => {
+    renderRoute(['/'])
 
     expect(
-      screen.getByRole('heading', { name: 'Welcome to TanStack Start' }),
-    ).toBeTruthy()
-    expect(
-      screen.getByText(/Edit/, {
-        selector: 'p',
+      await screen.findByRole('heading', {
+        name: 'Taskbit keeps the starter app ready for real work.',
       }),
     ).toBeTruthy()
+    expect(screen.getByText(/defined directly in the route file/i)).toBeTruthy()
+    expect(screen.getByRole('link', { name: 'About' })).toBeTruthy()
   })
 })
