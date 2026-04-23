@@ -1,4 +1,4 @@
-# taskbit
+# 💼 Taskbit
 
 Minimal TanStack Start app built with React 19, TypeScript, Tailwind CSS 4, and file-based routing via TanStack Router.
 
