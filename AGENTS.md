@@ -6,13 +6,13 @@
 
 ## File-Scoped Commands
 
-| Task         | Command                                                       |
-| ------------ | ------------------------------------------------------------- |
-| Lint         | `npm run lint -- src/routes/index.tsx`                        |
-| Test         | `npm run test -- src/routes/index.test.tsx --passWithNoTests` |
-| Format check | `npx prettier --check src/routes/index.tsx`                   |
-| Format write | `npx prettier --write src/routes/index.tsx`                   |
-| Typecheck    | `npx tsc --noEmit --pretty false -p tsconfig.json`            |
+| Task         | Command                                                        |
+| ------------ | -------------------------------------------------------------- |
+| Lint         | `npx oxlint src/routes/index.tsx`                              |
+| Test         | `npm run test -- src/routes/-index.test.tsx --passWithNoTests` |
+| Format check | `npx oxfmt --check src/routes/index.tsx`                       |
+| Format write | `npx oxfmt src/routes/index.tsx`                               |
+| Typecheck    | `npx tsc --noEmit --pretty false -p tsconfig.json`             |
 
 ## Key Conventions
 
@@ -24,7 +24,7 @@
 - Use `#/*` or `@/*` aliases for `src/` imports when helpful
 - Name route files by URL segment such as `src/routes/index.tsx` or `src/routes/about.tsx`
 - Use kebab-case for component filenames
-- Place tests beside the code they cover using `*.test.ts` or `*.test.tsx`
+- Keep app tests beside the code they cover in `src/`; keep repo/tooling tests in the root `tests/` folder
 - Do not commit generated local state such as `dist/` or `.tanstack/`
 - After adding routes, confirm `src/routeTree.gen.ts` updates cleanly and the app still boots
 - Use short imperative commit subjects such as `Add about route` or `Refine home layout`

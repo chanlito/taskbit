@@ -8,10 +8,7 @@ export function AppHeader(): React.JSX.Element {
   return (
     <header className="border-b border-slate-200 bg-white/90 backdrop-blur">
       <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
-        <Link
-          to="/"
-          className="text-lg font-semibold tracking-tight text-slate-950"
-        >
+        <Link to="/" className="text-lg font-semibold tracking-tight text-slate-950">
           Taskbit
         </Link>
         <nav className="flex items-center gap-2">

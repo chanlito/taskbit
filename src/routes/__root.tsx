@@ -1,10 +1,10 @@
+import '../styles.css'
+
+import { TanStackDevtools } from '@tanstack/react-devtools'
 import { Outlet, createRootRoute } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
-import { TanStackDevtools } from '@tanstack/react-devtools'
 
 import { AppHeader } from '#/components/app-header'
-
-import '../styles.css'
 
 export const Route = createRootRoute({
   component: RootComponent,

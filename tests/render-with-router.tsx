@@ -1,18 +1,16 @@
-import { render } from '@testing-library/react'
+import type { ReactNode } from 'react'
+
 import {
   RouterContextProvider,
   RouterProvider,
   createMemoryHistory,
   createRouter,
 } from '@tanstack/react-router'
-import type { ReactNode } from 'react'
-import type { RenderResult } from '@testing-library/react'
+import { render, type RenderResult } from '@testing-library/react'
 
 import { routeTree } from '#/routeTree.gen'
 
-function createTestRouter(
-  initialEntries: string[] = ['/'],
-): ReturnType<typeof createRouter> {
+function createTestRouter(initialEntries: string[] = ['/']): ReturnType<typeof createRouter> {
   const history = createMemoryHistory({
     initialEntries,
   })
@@ -45,7 +43,5 @@ export function renderWithRouterContext(
 ): RenderResult {
   const router = createTestRouter(initialEntries)
 
-  return render(
-    <RouterContextProvider router={router}>{ui}</RouterContextProvider>,
-  )
+  return render(<RouterContextProvider router={router}>{ui}</RouterContextProvider>)
 }

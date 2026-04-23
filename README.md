@@ -10,7 +10,7 @@ Minimal TanStack Start app built with React 19, TypeScript, Tailwind CSS 4, and 
 - TanStack Router with generated route tree
 - Tailwind CSS 4
 - Vitest
-- ESLint + Prettier
+- Oxlint + Oxfmt
 
 ## Getting Started
 
@@ -37,9 +37,9 @@ npm run dev      # start Vite dev server on port 6900
 npm run build    # create a production build
 npm run preview  # preview the production build
 npm run test     # run Vitest
-npm run lint     # run ESLint
-npm run format   # check formatting with Prettier
-npm run check    # write formatting fixes, then run ESLint with --fix
+npm run lint     # check formatting and run Oxlint
+npm run format   # check formatting with Oxfmt
+npm run check    # write formatting/import fixes, then run Oxlint with --fix
 npm run precommit # run the same checks used by the pre-commit hook
 ```
 
@@ -71,9 +71,9 @@ public/             # static assets
 ## Useful File-Scoped Commands
 
 ```bash
-npm run lint -- src/routes/index.tsx
-npm run test -- src/routes/index.test.tsx --passWithNoTests
-npx prettier --check src/routes/index.tsx
-npx prettier --write src/routes/index.tsx
+npx oxlint src/routes/index.tsx
+npm run test -- src/routes/-index.test.tsx --passWithNoTests
+npx oxfmt --check src/routes/index.tsx
+npx oxfmt src/routes/index.tsx
 npx tsc --noEmit --pretty false -p tsconfig.json
 ```

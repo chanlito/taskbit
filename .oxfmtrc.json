@@ -1,0 +1,42 @@
+{
+  "ignorePatterns": ["dist/**", "coverage/**", "src/routeTree.gen.ts"],
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "sortImports": {
+    "customGroups": [
+      {
+        "groupName": "react-value",
+        "elementNamePattern": ["react", "react/**", "react-dom", "react-dom/**", "react-**"],
+        "selector": "external",
+        "modifiers": ["value"]
+      },
+      {
+        "groupName": "react-type",
+        "elementNamePattern": ["react", "react/**", "react-dom", "react-dom/**", "react-**"],
+        "selector": "external",
+        "modifiers": ["type"]
+      }
+    ],
+    "internalPattern": ["#/", "@/"],
+    "newlinesBetween": false,
+    "sortSideEffects": true,
+    "groups": [
+      ["side_effect_style", "side_effect"],
+      { "newlinesBetween": true },
+      "react-value",
+      "react-type",
+      { "newlinesBetween": true },
+      ["value-builtin", "value-external"],
+      ["type-builtin", "type-external"],
+      { "newlinesBetween": true },
+      "value-internal",
+      "type-internal",
+      { "newlinesBetween": true },
+      ["value-parent", "value-sibling", "value-index"],
+      ["type-parent", "type-sibling", "type-index"],
+      { "newlinesBetween": true },
+      "unknown"
+    ]
+  }
+}

@@ -1,9 +1,8 @@
 // @vitest-environment jsdom
 
 import { screen } from '@testing-library/react'
+import { renderRoute } from 'tests/render-with-router'
 import { describe, expect, it } from 'vitest'
-
-import { renderRoute } from '#/test/router-test-utils'
 
 describe('about route', () => {
   it('renders the project introduction content', async () => {

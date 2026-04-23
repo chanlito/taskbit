@@ -1,10 +1,10 @@
 // @vitest-environment jsdom
 
 import { screen } from '@testing-library/react'
+import { renderWithRouterContext } from 'tests/render-with-router'
 import { describe, expect, it } from 'vitest'
 
 import { AppHeader } from '#/components/app-header'
-import { renderWithRouterContext } from '#/test/router-test-utils'
 
 describe('app header', () => {
   it('renders navigation links for home and about', () => {

@@ -1,0 +1,8 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "plugins": ["react", "vitest"],
+  "ignorePatterns": ["dist/**", "coverage/**", "src/routeTree.gen.ts"]
+}
