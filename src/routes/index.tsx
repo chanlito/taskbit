@@ -13,7 +13,7 @@ export const Route = createFileRoute('/')({
 function HomePage() {
   return (
     <section className="space-y-4">
-      <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">Welcome</p>
+      <p className="text-sm font-medium tracking-[0.2em] text-slate-500 uppercase">Welcome</p>
       <h1 className="text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
         {appConfig.title} keeps the starter app ready for real work.
       </h1>

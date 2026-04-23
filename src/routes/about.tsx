@@ -13,7 +13,7 @@ export const Route = createFileRoute('/about')({
 function AboutPage() {
   return (
     <section className="space-y-4">
-      <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">
+      <p className="text-sm font-medium tracking-[0.2em] text-slate-500 uppercase">
         {`About ${appConfig.title}`}
       </p>
       <h1 className="text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
