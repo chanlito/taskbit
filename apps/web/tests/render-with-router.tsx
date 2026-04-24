@@ -30,7 +30,6 @@ function ensureWindowScrollTo(): void {
 }
 
 export function renderRoute(initialEntries: string[] = ['/']): RenderResult {
-  document.body.replaceChildren()
   ensureWindowScrollTo()
 
   const router = createTestRouter(initialEntries)

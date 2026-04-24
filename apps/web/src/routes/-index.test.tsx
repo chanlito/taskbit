@@ -2,9 +2,13 @@
 
 import { screen, within } from '@testing-library/react'
 import { renderRoute } from 'tests/render-with-router'
-import { describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it } from 'vitest'
 
 import { appConfig } from '#/config'
+
+afterEach(() => {
+  document.body.replaceChildren()
+})
 
 describe('home route', () => {
   it('renders the product landing page content', async () => {
@@ -18,8 +22,8 @@ describe('home route', () => {
     expect(
       screen.getByText(/Capture issues, tasks, release checks, and product feedback/i),
     ).toBeTruthy()
-    expect(screen.getByRole('link', { name: `Learn about ${appConfig.title}` })).toBeTruthy()
-    expect(screen.getAllByRole('link', { name: 'Open app preview' })).toHaveLength(2)
+    expect(screen.getByRole('button', { name: `Learn about ${appConfig.title}` })).toBeTruthy()
+    expect(screen.getAllByRole('button', { name: 'Open app preview' })).toHaveLength(2)
   })
 
   it('renders a static workflow preview and sample metrics', async () => {
