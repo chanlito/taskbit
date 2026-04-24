@@ -20,8 +20,10 @@ describe('branding config', () => {
   it('keeps app code free of hard-coded app-title strings', async () => {
     const brandedFiles = await Promise.all([
       readAppFile('src/components/app-header.tsx'),
-      readAppFile('src/routes/index.tsx'),
-      readAppFile('src/routes/about.tsx'),
+      readAppFile('src/routes/_marketing.index.tsx'),
+      readAppFile('src/routes/_marketing.about.tsx'),
+      readAppFile('src/routes/_app.tsx'),
+      readAppFile('src/routes/_app.app.tsx'),
     ])
 
     for (const contents of brandedFiles) {
@@ -29,14 +31,17 @@ describe('branding config', () => {
     }
   })
 
-  it('keeps app header navigation labels in app config', async () => {
+  it('keeps navigation labels and icons in app config', async () => {
     const appHeader = await readAppFile('src/components/app-header.tsx')
+    const appLayout = await readAppFile('src/routes/_app.tsx')
     const config = await readAppFile('src/config.ts')
 
-    expect(appHeader).toContain('appConfig.navLinks')
+    expect(appHeader).toContain('appConfig.marketingNavLinks')
+    expect(appLayout).toContain('appConfig.appNavItems')
     expect(appHeader).not.toMatch(/\bHome\b/)
     expect(appHeader).not.toMatch(/\bAbout\b/)
     expect(config).toContain('icon:')
+    expect(config).not.toMatch(/icon:\s*['"`]\p{Extended_Pictographic}/u)
     expect(config).not.toContain("icon: '💼'")
   })
 

@@ -1,9 +1,9 @@
 import { appTitle } from '@taskbit/shared'
-import { House, Info } from 'lucide-react'
+import { AppWindow, House, Info } from 'lucide-react'
 
 export const appConfig = {
   title: appTitle,
-  navLinks: [
+  marketingNavLinks: [
     {
       label: 'Home',
       to: '/',
@@ -15,6 +15,13 @@ export const appConfig = {
       to: '/about',
       icon: Info,
       exact: false,
+    },
+  ],
+  appNavItems: [
+    {
+      label: 'Workspace',
+      to: '/app',
+      icon: AppWindow,
     },
   ],
 } as const
