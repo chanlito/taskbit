@@ -1,11 +1,11 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 import {
   ArrowRight,
-  Blocks,
   CheckCircle2,
-  CloudCog,
+  CircleDot,
   GitPullRequestArrow,
   MonitorDown,
+  Route as RouteIcon,
 } from 'lucide-react'
 
 import { Button } from '#/components/ui/button'
@@ -16,54 +16,55 @@ const workflowColumns = [
   {
     title: 'Triage',
     label: 'Signals',
+    status: 'Needs order',
     items: [
-      `Map GitHub issue labels into ${appConfig.title} priorities`,
-      'Group billing bug reports by customer impact',
+      `Map GitHub issue labels into ${appConfig.title} priorities.`,
+      'Group billing bug reports by customer impact.',
     ],
   },
   {
-    title: 'In Progress',
-    label: 'Delivery',
+    title: 'Decision',
+    label: 'Scope',
+    status: 'Owner set',
     items: [
-      'Review API integration checklist with platform team',
-      'Confirm dashboard empty-state copy with design',
+      'Review API integration checklist with platform team.',
+      'Confirm dashboard empty-state copy with design.',
     ],
   },
   {
-    title: 'Ready to Ship',
+    title: 'Ship',
     label: 'Release',
+    status: 'Ready check',
     items: [
-      'Run release readiness check for desktop build',
-      'Attach product feedback notes to sprint review',
+      'Run release readiness check for desktop build.',
+      'Attach product feedback notes to sprint review.',
     ],
   },
 ]
 
-const features = [
+const productPaths = [
   {
-    title: 'API integrations',
-    description:
-      'Bring work signals from issue trackers, feedback channels, and release tools into one planning surface.',
-    icon: CloudCog,
-    detail: 'Signal intake',
+    title: 'Intake',
+    description: 'Collect issue, feedback, and release signals before they become scattered.',
+    icon: CircleDot,
+    proof: 'Single source for what needs attention.',
   },
   {
-    title: 'Web workspace',
-    description: 'Plan, prioritize, and review team execution from a focused browser workspace.',
-    icon: Blocks,
-    detail: 'Team planning',
+    title: 'Shape',
+    description: 'Turn raw signals into scoped work with clear owners and delivery context.',
+    icon: RouteIcon,
+    proof: 'A planning surface for product and engineering.',
   },
   {
-    title: 'Desktop apps',
-    description: `Keep ${appConfig.title} close at hand with planned desktop shells for macOS and Windows.`,
+    title: 'Return',
+    description: `Keep ${appConfig.title} close by through the web app and desktop shell.`,
     icon: MonitorDown,
-    detail: 'Close at hand',
+    proof: 'Useful when work shifts between browser and desktop.',
   },
 ]
 
-const metrics = ['12 connected signals', '38 sample work items', '6 release checks']
-const operatingLoop = ['Capture', 'Sort', 'Ship']
-const surfaceClassName = 'border-border bg-background'
+const operatingLoop = ['Capture', 'Clarify', 'Release']
+const surfaceClassName = 'border-border bg-[oklch(0.994_0.003_326)]'
 const foregroundTextClassName = 'text-foreground'
 const primaryTextClassName = 'text-primary'
 const mutedTextClassName = 'text-muted-foreground'
@@ -78,24 +79,25 @@ export const Route = createFileRoute('/_marketing/')({
 
 function HomePage() {
   return (
-    <div className="space-y-14 sm:space-y-18">
-      <section className="grid gap-10 xl:grid-cols-[minmax(0,1fr)_460px] xl:items-center xl:gap-16">
-        <div className="space-y-8">
+    <div className="space-y-16 sm:space-y-20">
+      <section className="grid gap-10 xl:grid-cols-[minmax(0,1fr)_480px] xl:items-center xl:gap-16">
+        <div className="space-y-9">
           <div
             className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-semibold ${surfaceClassName} ${mutedTextClassName}`}
           >
             <GitPullRequestArrow aria-hidden="true" className="size-4" />
-            <span className="tracking-[0.14em] uppercase">Workflow hub for product teams</span>
+            <span className="tracking-[0.14em] uppercase">Product delivery desk</span>
           </div>
           <div className="max-w-3xl space-y-5">
             <h1
               className={`text-5xl leading-[1.05] font-semibold sm:text-6xl ${foregroundTextClassName}`}
             >
-              Turn scattered product work into one clear workflow.
+              Turn scattered product work into a clear path to ship.
             </h1>
             <p className={`max-w-2xl text-lg leading-8 ${bodyTextClassName}`}>
-              Capture issues, tasks, release checks, and product feedback in a workspace built for
-              developer and product teams moving from signal to shipped work.
+              {appConfig.title} gives product and developer teams a calm place to capture signals,
+              shape decisions, and keep release readiness visible without pretending the sample data
+              is live.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
@@ -109,7 +111,7 @@ function HomePage() {
               <Link to="/about">{`Learn about ${appConfig.title}`}</Link>
             </Button>
           </div>
-          <div className="grid max-w-xl grid-cols-3 gap-2 border-y border-border py-3">
+          <div className="grid max-w-xl grid-cols-3 gap-2 border-y border-border py-4">
             {operatingLoop.map((step, index) => (
               <div key={step}>
                 <p
@@ -125,43 +127,27 @@ function HomePage() {
         <WorkflowPreview />
       </section>
 
-      <section
-        className={`grid gap-5 rounded-lg border p-5 sm:grid-cols-[1.2fr_repeat(3,1fr)] sm:items-center ${surfaceClassName}`}
-      >
-        <div>
-          <p className={`text-sm font-semibold ${mutedTextClassName}`}>Sample workspace snapshot</p>
-          <p className={`mt-1 text-sm ${bodyTextClassName}`}>
-            Non-live values used to frame the product direction.
-          </p>
-        </div>
-        {metrics.map((metric) => (
-          <p key={metric} className={`text-lg font-semibold ${primaryTextClassName}`}>
-            {metric}
-          </p>
-        ))}
-      </section>
-
-      <section className="grid gap-8 lg:grid-cols-[320px_1fr] lg:items-start">
+      <section className="grid gap-8 border-y border-border py-8 lg:grid-cols-[340px_1fr] lg:items-start">
         <div className="space-y-3">
           <p className={`text-sm font-semibold tracking-[0.14em] uppercase ${mutedTextClassName}`}>
-            Product surface
+            Operating shape
           </p>
           <h2 className={`text-3xl leading-tight font-semibold ${foregroundTextClassName}`}>
-            One workflow, three practical entry points.
+            Built around the handoff from signal to shipped work.
           </h2>
           <p className={`leading-7 ${bodyTextClassName}`}>
-            The marketing page should point at the real operating shape: integrations for signals, a
-            focused web workspace, and desktop access when teams want it nearby.
+            The public page points to the actual product direction: a focused web workspace, planned
+            integrations, and desktop access for teams that want the workflow nearby.
           </p>
         </div>
-        <div className="grid gap-3">
-          {features.map((feature) => {
-            const Icon = feature.icon
+        <div className="grid gap-4">
+          {productPaths.map((path, index) => {
+            const Icon = path.icon
 
             return (
               <article
-                key={feature.title}
-                className={`grid gap-4 rounded-lg border p-5 sm:grid-cols-[180px_1fr] sm:items-start ${surfaceClassName}`}
+                key={path.title}
+                className={`grid gap-4 rounded-lg border p-5 sm:grid-cols-[120px_1fr] sm:items-start ${surfaceClassName}`}
               >
                 <div className="flex items-center gap-3">
                   <span
@@ -169,13 +155,14 @@ function HomePage() {
                   >
                     <Icon aria-hidden="true" className="size-5" />
                   </span>
-                  <p className={`text-sm font-semibold ${mutedTextClassName}`}>{feature.detail}</p>
+                  <p className={`text-sm font-semibold ${mutedTextClassName}`}>0{index + 1}</p>
                 </div>
                 <div>
                   <h3 className={`text-xl font-semibold ${foregroundTextClassName}`}>
-                    {feature.title}
+                    {path.title}
                   </h3>
-                  <p className={`mt-2 leading-7 ${bodyTextClassName}`}>{feature.description}</p>
+                  <p className={`mt-2 leading-7 ${bodyTextClassName}`}>{path.description}</p>
+                  <p className={`mt-3 text-sm font-semibold ${mutedTextClassName}`}>{path.proof}</p>
                 </div>
               </article>
             )
@@ -209,8 +196,9 @@ function WorkflowPreview() {
           <div key={column.title} className="rounded-md bg-muted p-3">
             <div className="flex items-center justify-between gap-3">
               <h3 className={`text-sm font-semibold ${primaryTextClassName}`}>{column.title}</h3>
-              <p className={`text-xs font-semibold ${mutedTextClassName}`}>{column.label}</p>
+              <p className={`text-xs font-semibold ${mutedTextClassName}`}>{column.status}</p>
             </div>
+            <p className={`mt-1 text-xs font-semibold ${mutedTextClassName}`}>{column.label}</p>
             <div className="mt-3 space-y-2">
               {column.items.map((item) => (
                 <div

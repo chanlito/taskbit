@@ -16,11 +16,11 @@ describe('home route', () => {
 
     expect(
       await screen.findByRole('heading', {
-        name: 'Turn scattered product work into one clear workflow.',
+        name: 'Turn scattered product work into a clear path to ship.',
       }),
     ).toBeTruthy()
     expect(
-      screen.getByText(/Capture issues, tasks, release checks, and product feedback/i),
+      screen.getByText(/capture signals, shape decisions, and keep release readiness visible/i),
     ).toBeTruthy()
     expect(screen.getByRole('link', { name: `Learn about ${appConfig.title}` })).toBeTruthy()
     expect(screen.getAllByRole('link', { name: 'Open app preview' })).toHaveLength(2)
@@ -30,25 +30,25 @@ describe('home route', () => {
     renderRoute(['/'])
 
     await screen.findByRole('heading', {
-      name: 'Turn scattered product work into one clear workflow.',
+      name: 'Turn scattered product work into a clear path to ship.',
     })
 
     const preview = screen.getByTestId('workflow-preview')
     expect(within(preview).getByText('Triage')).toBeTruthy()
-    expect(within(preview).getByText('In Progress')).toBeTruthy()
-    expect(within(preview).getByText('Ready to Ship')).toBeTruthy()
+    expect(within(preview).getByText('Decision')).toBeTruthy()
+    expect(within(preview).getByText('Ship')).toBeTruthy()
     expect(
-      within(preview).getByText(`Map GitHub issue labels into ${appConfig.title} priorities`),
+      within(preview).getByText(`Map GitHub issue labels into ${appConfig.title} priorities.`),
     ).toBeTruthy()
-    expect(screen.getByText('Sample workspace snapshot')).toBeTruthy()
-    expect(screen.getByText('12 connected signals')).toBeTruthy()
+    expect(screen.getByText('Operating shape')).toBeTruthy()
+    expect(screen.getByText('Single source for what needs attention.')).toBeTruthy()
   })
 
   it('sets the document title', async () => {
     renderRoute(['/'])
 
     await screen.findByRole('heading', {
-      name: 'Turn scattered product work into one clear workflow.',
+      name: 'Turn scattered product work into a clear path to ship.',
     })
 
     expect(document.title).toBe(`Home · ${appConfig.title}`)

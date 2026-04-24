@@ -16,7 +16,7 @@ describe('about route', () => {
 
     expect(
       await screen.findByRole('heading', {
-        name: 'A clearer operating surface for product work.',
+        name: 'A practical operating surface for product work.',
       }),
     ).toBeTruthy()
     expect(
@@ -29,17 +29,17 @@ describe('about route', () => {
     renderRoute(['/about'])
 
     await screen.findByRole('heading', {
-      name: 'A clearer operating surface for product work.',
+      name: 'A practical operating surface for product work.',
     })
 
     expect(screen.getByText('Product surface')).toBeTruthy()
-    expect(screen.getByText('API integrations')).toBeTruthy()
-    expect(screen.getByText('Web app')).toBeTruthy()
-    expect(screen.getByText('Desktop apps for macOS and Windows')).toBeTruthy()
-    expect(screen.getByText('Clarity')).toBeTruthy()
-    expect(screen.getByText('Momentum')).toBeTruthy()
-    expect(screen.getByText('Traceability')).toBeTruthy()
-    expect(screen.getByText('TanStack Router')).toBeTruthy()
+    expect(screen.getByText('Signal intake')).toBeTruthy()
+    expect(screen.getByText('Planning surface')).toBeTruthy()
+    expect(screen.getByText('Desktop return point')).toBeTruthy()
+    expect(screen.getByText('Make scattered work legible')).toBeTruthy()
+    expect(screen.getByText('Preserve honest product state')).toBeTruthy()
+    expect(screen.getByText('Keep momentum visible')).toBeTruthy()
+    expect(screen.getByText('React workspace')).toBeTruthy()
     expect(
       screen.getByText('Explore connectors for issue, feedback, and release tools.'),
     ).toBeTruthy()
@@ -49,7 +49,7 @@ describe('about route', () => {
     renderRoute(['/about'])
 
     await screen.findByRole('heading', {
-      name: 'A clearer operating surface for product work.',
+      name: 'A practical operating surface for product work.',
     })
 
     expect(document.title).toBe(`About · ${appConfig.title}`)
