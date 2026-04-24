@@ -26,6 +26,7 @@ Use these for final verification or cross-workspace changes, not after every edi
 | Desktop         | `pnpm dev:desktop`             |
 | Desktop install | `pnpm build:desktop:install`   |
 | Build           | `pnpm build`                   |
+| Push build      | `pnpm build:push`              |
 | Test            | `pnpm test`                    |
 | Lint            | `pnpm lint`                    |
 | Format check    | `pnpm format`                  |
@@ -46,6 +47,7 @@ Use these for final verification or cross-workspace changes, not after every edi
 
 - Prefer the narrowest affected workspace or file-scoped command while iterating
 - Do not run root `pnpm build`, `pnpm test`, `pnpm lint`, or `pnpm typecheck` after every edit
+- `pnpm prepush` uses `pnpm build:push`, which excludes the Tauri desktop package build
 - Run root checks when changes cross workspaces, touch shared config/dependencies, or before handing off complete work
 
 ## Key Conventions

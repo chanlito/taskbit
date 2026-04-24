@@ -39,6 +39,7 @@ pnpm dev:api                # run only the Nitro API on port 6969
 pnpm dev:desktop            # run the Tauri desktop app
 pnpm build:desktop:install  # build and install Taskbit.app to /Applications
 pnpm build                  # build workspaces through Turbo
+pnpm build:push             # build push-gated workspaces, excluding desktop packaging
 pnpm test                   # run workspace tests
 pnpm lint                   # run Oxlint
 pnpm format                 # check formatting with Oxfmt

@@ -10,13 +10,14 @@
     "dev:desktop": "pnpm --filter @taskbit/desktop dev",
     "build:desktop:install": "pnpm --filter @taskbit/desktop build:install",
     "build": "turbo run build",
+    "build:push": "turbo run build --filter=!@taskbit/desktop",
     "test": "turbo run test",
     "lint": "turbo run lint",
     "format": "turbo run format",
     "typecheck": "turbo run typecheck",
     "check": "turbo run check",
     "precommit": "pnpm format && pnpm lint",
-    "prepush": "pnpm typecheck && pnpm test && pnpm build",
+    "prepush": "pnpm typecheck && pnpm test && pnpm build:push",
     "prepare": "simple-git-hooks"
   },
   "devDependencies": {
