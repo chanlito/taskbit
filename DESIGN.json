@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-04-24T00:00:00+07:00",
+  "title": "Design System: Taskbit",
+  "extensions": {
+    "colorMeta": {
+      "background": {
+        "role": "neutral",
+        "displayName": "Workspace Paper",
+        "canonical": "oklch(1 0 0)",
+        "tonalRamp": ["oklch(0.985 0.002 326)", "oklch(0.96 0.003 325.6)", "oklch(0.922 0.005 325.62)"]
+      },
+      "foreground": {
+        "role": "neutral",
+        "displayName": "Plum Black",
+        "canonical": "oklch(0.145 0.008 326)",
+        "tonalRamp": ["oklch(0.542 0.034 322.5)", "oklch(0.212 0.019 322.12)", "oklch(0.145 0.008 326)"]
+      },
+      "primary": {
+        "role": "primary",
+        "displayName": "Task Ink",
+        "canonical": "oklch(0.212 0.019 322.12)",
+        "tonalRamp": ["oklch(0.263 0.024 320.12)", "oklch(0.212 0.019 322.12)", "oklch(0.145 0.008 326)"]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Panel",
+        "canonical": "oklch(0.96 0.003 325.6)",
+        "tonalRamp": ["oklch(0.985 0.002 326)", "oklch(0.96 0.003 325.6)", "oklch(0.922 0.005 325.62)"]
+      },
+      "success": {
+        "role": "semantic",
+        "displayName": "Release Green",
+        "canonical": "oklch(0.596 0.145 163.225)",
+        "tonalRamp": ["oklch(0.94 0.045 163)", "oklch(0.72 0.12 163)", "oklch(0.596 0.145 163.225)"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headlines that explain the product direction."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Large page introductions and major section leads."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card headers, app workspace headers, and section titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Product explanation, task text, roadmap copy, and supporting context."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Compact metadata, nav labels, status markers, and short eyebrows."
+      }
+    },
+    "elevation": {
+      "previewLift": {
+        "value": "shadow-sm",
+        "purpose": "A slight lift for static marketing previews only."
+      }
+    },
+    "motion": {
+      "defaultTransition": {
+        "properties": ["color", "background-color", "border-color", "box-shadow", "transform"],
+        "duration": "150ms",
+        "easing": "ease-out"
+      },
+      "rules": [
+        "Do not animate layout properties.",
+        "Respect reduced-motion preferences for future richer interactions."
+      ]
+    },
+    "breakpoints": {
+      "mobile": "390px",
+      "browserPane": "505px",
+      "desktop": "1440px",
+      "appDenseGrid": "1280px"
+    },
+    "rules": [
+      "Use the product register by default.",
+      "Keep marketing and app navigation separate.",
+      "Treat all sample workflow content as placeholder until real integrations exist.",
+      "Avoid horizontal overflow in the in-app browser pane."
+    ]
+  }
+}
