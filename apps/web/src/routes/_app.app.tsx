@@ -43,8 +43,8 @@ function AppPage() {
           </p>
         </div>
       </section>
-      <section className="grid gap-4 lg:grid-cols-[1fr_280px]">
-        <div className="grid gap-4 md:grid-cols-3">
+      <section className="grid gap-4 xl:grid-cols-[1fr_280px]">
+        <div className="grid gap-4 xl:grid-cols-3">
           {workflow.map((column) => (
             <article key={column.title} className="rounded-lg border border-slate-200 bg-white p-4">
               <h2 className="font-semibold text-slate-950">{column.title}</h2>
