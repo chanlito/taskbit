@@ -41,6 +41,7 @@ describe('branding config', () => {
     expect(appHeader).not.toMatch(/\bHome\b/)
     expect(appHeader).not.toMatch(/\bAbout\b/)
     expect(config).toContain('icon:')
+    expect(config).not.toMatch(/icon:\s*['"`]\p{Extended_Pictographic}/u)
     expect(config).not.toContain("icon: '💼'")
   })
 
