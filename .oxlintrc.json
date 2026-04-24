@@ -4,5 +4,14 @@
     "node": true
   },
   "plugins": ["react", "vitest"],
-  "ignorePatterns": ["dist/**", "coverage/**", "src/routeTree.gen.ts"]
+  "ignorePatterns": [
+    "**/dist/**",
+    "**/coverage/**",
+    "**/.nitro/**",
+    "**/.output/**",
+    "**/.turbo/**",
+    "apps/web/src/routeTree.gen.ts",
+    "apps/desktop/src-tauri/gen/**",
+    "apps/desktop/src-tauri/target/**"
+  ]
 }

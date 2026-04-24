@@ -5,8 +5,9 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { afterEach, describe, expect, it } from 'vitest'
 
-const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const npmCommand = process.platform === 'win32' ? 'npm.cmd' : 'npm'
+const appRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
+const workspaceRoot = path.resolve(appRoot, '../..')
+const pnpmCommand = process.platform === 'win32' ? 'pnpm.cmd' : 'pnpm'
 const tempDirs: string[] = []
 
 afterEach(async () => {
@@ -14,14 +15,21 @@ afterEach(async () => {
 })
 
 function runCommand(cwd: string, args: string[]) {
-  return spawnSync(npmCommand, args, {
+  return spawnSync(pnpmCommand, args, {
     cwd,
     encoding: 'utf8',
     env: {
       ...process.env,
-      PATH: `${path.join(repoRoot, 'node_modules', '.bin')}:${process.env.PATH ?? ''}`,
+      PATH: `${path.join(workspaceRoot, 'node_modules', '.bin')}:${process.env.PATH ?? ''}`,
     },
   })
+}
+
+async function copyToolingConfig(tempDir: string): Promise<void> {
+  await cp(path.join(workspaceRoot, '.oxfmtrc.json'), path.join(tempDir, '.oxfmtrc.json'))
+  await cp(path.join(workspaceRoot, '.oxlintrc.json'), path.join(tempDir, '.oxlintrc.json'))
+  await mkdir(path.join(tempDir, 'apps/web/src'), { recursive: true })
+  await writeFile(path.join(tempDir, 'apps/web/src/styles.css'), "@import 'tailwindcss';\n")
 }
 
 describe('oxc tooling', () => {
@@ -29,8 +37,7 @@ describe('oxc tooling', () => {
     const tempDir = await mkdtemp(path.join(tmpdir(), 'taskbit-oxc-'))
     tempDirs.push(tempDir)
 
-    await cp(path.join(repoRoot, '.oxfmtrc.json'), path.join(tempDir, '.oxfmtrc.json'))
-    await cp(path.join(repoRoot, '.oxlintrc.json'), path.join(tempDir, '.oxlintrc.json'))
+    await copyToolingConfig(tempDir)
     await writeFile(
       path.join(tempDir, 'package.json'),
       JSON.stringify(
@@ -38,9 +45,9 @@ describe('oxc tooling', () => {
           private: true,
           type: 'module',
           scripts: {
-            lint: `${JSON.stringify(path.join(repoRoot, 'node_modules', '.bin', 'oxlint'))}`,
-            format: `${JSON.stringify(path.join(repoRoot, 'node_modules', '.bin', 'oxfmt'))} --check .`,
-            check: `${JSON.stringify(path.join(repoRoot, 'node_modules', '.bin', 'oxfmt'))} . && ${JSON.stringify(path.join(repoRoot, 'node_modules', '.bin', 'oxlint'))} --fix`,
+            lint: `${JSON.stringify(path.join(workspaceRoot, 'node_modules', '.bin', 'oxlint'))}`,
+            format: `${JSON.stringify(path.join(workspaceRoot, 'node_modules', '.bin', 'oxfmt'))} --check .`,
+            check: `${JSON.stringify(path.join(workspaceRoot, 'node_modules', '.bin', 'oxfmt'))} . && ${JSON.stringify(path.join(workspaceRoot, 'node_modules', '.bin', 'oxlint'))} --fix`,
           },
         },
         null,
@@ -106,8 +113,7 @@ describe('oxc tooling', () => {
     const tempDir = await mkdtemp(path.join(tmpdir(), 'taskbit-oxc-'))
     tempDirs.push(tempDir)
 
-    await cp(path.join(repoRoot, '.oxfmtrc.json'), path.join(tempDir, '.oxfmtrc.json'))
-    await cp(path.join(repoRoot, '.oxlintrc.json'), path.join(tempDir, '.oxlintrc.json'))
+    await copyToolingConfig(tempDir)
     await writeFile(
       path.join(tempDir, 'package.json'),
       JSON.stringify(
@@ -115,9 +121,9 @@ describe('oxc tooling', () => {
           private: true,
           type: 'module',
           scripts: {
-            lint: `${JSON.stringify(path.join(repoRoot, 'node_modules', '.bin', 'oxlint'))}`,
-            format: `${JSON.stringify(path.join(repoRoot, 'node_modules', '.bin', 'oxfmt'))} --check .`,
-            check: `${JSON.stringify(path.join(repoRoot, 'node_modules', '.bin', 'oxfmt'))} . && ${JSON.stringify(path.join(repoRoot, 'node_modules', '.bin', 'oxlint'))} --fix`,
+            lint: `${JSON.stringify(path.join(workspaceRoot, 'node_modules', '.bin', 'oxlint'))}`,
+            format: `${JSON.stringify(path.join(workspaceRoot, 'node_modules', '.bin', 'oxfmt'))} --check .`,
+            check: `${JSON.stringify(path.join(workspaceRoot, 'node_modules', '.bin', 'oxfmt'))} . && ${JSON.stringify(path.join(workspaceRoot, 'node_modules', '.bin', 'oxlint'))} --fix`,
           },
         },
         null,

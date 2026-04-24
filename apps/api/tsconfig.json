@@ -1,0 +1,7 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": ["nitro.config.ts", "server/**/*.ts", "tests/**/*.ts"],
+  "compilerOptions": {
+    "types": ["node", "vitest/globals"]
+  }
+}

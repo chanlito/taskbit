@@ -1,7 +1,8 @@
+import { appTitle } from '@taskbit/shared'
 import { House, Info } from 'lucide-react'
 
 export const appConfig = {
-  title: 'Taskbit',
+  title: appTitle,
   navLinks: [
     {
       label: 'Home',

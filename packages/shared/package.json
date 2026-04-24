@@ -1,0 +1,24 @@
+{
+  "name": "@taskbit/shared",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc --pretty false -p tsconfig.build.json",
+    "test": "vitest run",
+    "lint": "pnpm exec oxlint .",
+    "format": "pnpm exec oxfmt --check .",
+    "typecheck": "tsc --noEmit --pretty false -p tsconfig.json",
+    "check": "pnpm exec oxfmt . && pnpm exec oxlint --fix ."
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2",
+    "vitest": "^3.0.5"
+  }
+}

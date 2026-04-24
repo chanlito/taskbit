@@ -1,0 +1,24 @@
+{
+  "name": "@taskbit/api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nitro dev --port 6969",
+    "build": "nitro build",
+    "test": "vitest run",
+    "lint": "pnpm exec oxlint .",
+    "format": "pnpm exec oxfmt --check .",
+    "typecheck": "tsc --noEmit --pretty false -p tsconfig.json",
+    "check": "pnpm exec oxfmt . && pnpm exec oxlint --fix ."
+  },
+  "dependencies": {
+    "@taskbit/shared": "workspace:*",
+    "h3": "^1.15.10"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "nitropack": "^2.13.3",
+    "typescript": "^5.7.2",
+    "vitest": "^3.0.5"
+  }
+}

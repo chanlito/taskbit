@@ -1,0 +1,29 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "Taskbit",
+  "version": "0.1.0",
+  "identifier": "com.taskbit.desktop",
+  "build": {
+    "beforeDevCommand": "pnpm --filter @taskbit/web dev",
+    "beforeBuildCommand": "pnpm --filter @taskbit/web build",
+    "devUrl": "http://localhost:6900",
+    "frontendDist": "../../web/dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Taskbit",
+        "width": 1024,
+        "height": 768,
+        "resizable": true
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all"
+  }
+}

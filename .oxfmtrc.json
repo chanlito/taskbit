@@ -1,10 +1,19 @@
 {
-  "ignorePatterns": ["dist/**", "coverage/**", "src/routeTree.gen.ts"],
+  "ignorePatterns": [
+    "**/dist/**",
+    "**/coverage/**",
+    "**/.nitro/**",
+    "**/.output/**",
+    "**/.turbo/**",
+    "apps/web/src/routeTree.gen.ts",
+    "apps/desktop/src-tauri/gen/**",
+    "apps/desktop/src-tauri/target/**"
+  ],
   "semi": false,
   "singleQuote": true,
   "trailingComma": "all",
   "sortTailwindcss": {
-    "stylesheet": "./src/styles.css"
+    "stylesheet": "./apps/web/src/styles.css"
   },
   "sortImports": {
     "customGroups": [
