@@ -8,9 +8,9 @@ export const Route = createFileRoute('/_marketing')({
 
 function MarketingLayout() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-[oklch(0.982_0.004_326)]">
       <MarketingHeader />
-      <main className="mx-auto max-w-6xl px-6 py-12 sm:py-16">
+      <main className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14 lg:py-18">
         <Outlet />
       </main>
     </div>
