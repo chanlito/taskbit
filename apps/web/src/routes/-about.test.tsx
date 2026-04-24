@@ -33,6 +33,8 @@ describe('about route', () => {
     })
 
     expect(screen.getByText('Product surface')).toBeTruthy()
+    expect(screen.getByText('API integrations')).toBeTruthy()
+    expect(screen.getByText('Web app')).toBeTruthy()
     expect(screen.getByText('Desktop apps for macOS and Windows')).toBeTruthy()
     expect(screen.getByText('Clarity')).toBeTruthy()
     expect(screen.getByText('Momentum')).toBeTruthy()
