@@ -18,7 +18,6 @@
   "dependencies": {
     "@base-ui/react": "^1.4.1",
     "@fontsource-variable/figtree": "^5.2.10",
-    "@phosphor-icons/react": "^2.1.10",
     "@tanstack/react-devtools": "latest",
     "@tanstack/react-router": "latest",
     "@tanstack/react-router-devtools": "latest",

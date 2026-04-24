@@ -69,9 +69,9 @@ packages/
 ## Useful File-Scoped Commands
 
 ```bash
-pnpm --filter @taskbit/web exec oxlint src/routes/index.tsx
+pnpm --filter @taskbit/web exec oxlint src/routes/_marketing.index.tsx
 pnpm --filter @taskbit/web test -- src/routes/-index.test.tsx
-pnpm --filter @taskbit/web exec oxfmt --check src/routes/index.tsx
+pnpm --filter @taskbit/web exec oxfmt --check src/routes/_marketing.index.tsx
 pnpm --filter @taskbit/api test -- server/api/health.test.ts
 pnpm --filter @taskbit/shared test -- src/index.test.ts
 cargo check --manifest-path apps/desktop/src-tauri/Cargo.toml

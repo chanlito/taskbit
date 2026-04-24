@@ -26,7 +26,7 @@ Use desktop build for Tauri config/bundling changes or final verification, not a
 ## Key Conventions
 
 - Tauri config lives in `src-tauri/tauri.conf.json`
-- `devUrl` points to `http://localhost:6900`
+- `devUrl` points to `http://localhost:6900/app`
 - `frontendDist` points to `../../web/dist`
 - Desktop reuses `apps/web`; do not add another frontend surface here
 - Keep Tauri icons desktop-only; do not generate or commit `src-tauri/icons/ios/` or `src-tauri/icons/android/`

@@ -36,9 +36,9 @@ Use these for final verification or cross-workspace changes, not after every edi
 
 | Task                 | Command                                                              |
 | -------------------- | -------------------------------------------------------------------- |
-| Web route lint       | `pnpm --filter @taskbit/web exec oxlint src/routes/index.tsx`        |
+| Web route lint       | `pnpm --filter @taskbit/web exec oxlint src/routes/_marketing.index.tsx` |
 | Web route test       | `pnpm --filter @taskbit/web test -- src/routes/-index.test.tsx`      |
-| Web route format     | `pnpm --filter @taskbit/web exec oxfmt --check src/routes/index.tsx` |
+| Web route format     | `pnpm --filter @taskbit/web exec oxfmt --check src/routes/_marketing.index.tsx` |
 | API route test       | `pnpm --filter @taskbit/api test -- server/api/health.test.ts`       |
 | Shared contract test | `pnpm --filter @taskbit/shared test -- src/index.test.ts`            |
 | Desktop Rust check   | `cargo check --manifest-path apps/desktop/src-tauri/Cargo.toml`      |
