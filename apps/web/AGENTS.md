@@ -39,6 +39,7 @@ Use workspace-wide commands for web-wide changes or final verification, not afte
 - Prefer Tailwind utilities for styling before adding or expanding rules in `src/styles.css`
 - Use `src/styles.css` only for global tokens, app-wide base styles, or styles that cannot be cleanly expressed with Tailwind utilities
 - Prefer installed `shadcn/ui` components over custom-styled HTML
+- This project uses `shadcn/ui` with Base UI, not Radix UI; do not assume Radix primitives, imports, props, data attributes, or docs apply
 - Before building new component UI with raw markup and Tailwind, check whether an existing `shadcn/ui` component or local wrapper already fits the need
 - Keep custom UI components small, composable, and consistent with existing design patterns
 - Use `#/*` or `@/*` for `src/` imports and `tests/*` for web test helpers
