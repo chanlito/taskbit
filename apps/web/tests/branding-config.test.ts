@@ -20,7 +20,7 @@ describe('branding config', () => {
   it('keeps app code free of hard-coded app-title strings', async () => {
     const brandedFiles = await Promise.all([
       readAppFile('src/components/app-header.tsx'),
-      readAppFile('src/routes/index.tsx'),
+      readAppFile('src/routes/_marketing.index.tsx'),
       readAppFile('src/routes/about.tsx'),
     ])
 
@@ -33,7 +33,7 @@ describe('branding config', () => {
     const appHeader = await readAppFile('src/components/app-header.tsx')
     const config = await readAppFile('src/config.ts')
 
-    expect(appHeader).toContain('appConfig.navLinks')
+    expect(appHeader).toContain('appConfig.marketingNavLinks')
     expect(appHeader).not.toMatch(/\bHome\b/)
     expect(appHeader).not.toMatch(/\bAbout\b/)
     expect(config).toContain('icon:')
