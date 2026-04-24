@@ -1,4 +1,4 @@
-import { Outlet, createFileRoute } from '@tanstack/react-router'
+import { Link, Outlet, createFileRoute } from '@tanstack/react-router'
 
 import { appConfig } from '#/config'
 
@@ -20,17 +20,26 @@ function AppLayout() {
               <p className="text-xs text-slate-500">App preview</p>
             </div>
           </div>
-          <nav className="mt-6 space-y-1">
+          <nav aria-label="App navigation" className="mt-6 space-y-1">
             {appConfig.appNavItems.map((item) => {
               const Icon = item.icon
               return (
-                <div
+                <Link
                   key={item.label}
-                  className="flex items-center gap-2 rounded-md bg-slate-100 px-3 py-2 text-sm font-medium text-slate-900"
+                  to={item.to}
+                  activeOptions={{ exact: true }}
+                  activeProps={{
+                    'aria-current': 'page',
+                    className: 'bg-slate-100 text-slate-900',
+                  }}
+                  inactiveProps={{
+                    className: 'text-slate-700 hover:bg-slate-50 hover:text-slate-950',
+                  }}
+                  className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium"
                 >
                   <Icon aria-hidden="true" className="size-4" />
                   <span>{item.label}</span>
-                </div>
+                </Link>
               )
             })}
           </nav>

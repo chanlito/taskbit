@@ -20,6 +20,7 @@ export const appConfig = {
   appNavItems: [
     {
       label: 'Workspace',
+      to: '/app',
       icon: AppWindow,
     },
   ],

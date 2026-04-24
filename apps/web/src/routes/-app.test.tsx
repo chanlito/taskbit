@@ -34,7 +34,9 @@ describe('app route', () => {
     const appShell = screen.getByTestId('app-shell')
     expect(within(appShell).queryByRole('link', { name: 'Home' })).toBeNull()
     expect(within(appShell).queryByRole('link', { name: 'About' })).toBeNull()
-    expect(within(appShell).getByText('Workspace')).toBeTruthy()
+
+    const workspaceLink = within(appShell).getByRole('link', { name: 'Workspace' })
+    expect(workspaceLink.getAttribute('href')).toBe('/app')
   })
 
   it('sets the document title', async () => {
