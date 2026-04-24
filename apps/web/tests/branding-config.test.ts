@@ -21,7 +21,7 @@ describe('branding config', () => {
     const brandedFiles = await Promise.all([
       readAppFile('src/components/app-header.tsx'),
       readAppFile('src/routes/_marketing.index.tsx'),
-      readAppFile('src/routes/about.tsx'),
+      readAppFile('src/routes/_marketing.about.tsx'),
     ])
 
     for (const contents of brandedFiles) {
