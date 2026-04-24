@@ -33,16 +33,17 @@ The web app runs on [http://localhost:6900](http://localhost:6900).
 ## Scripts
 
 ```bash
-pnpm dev          # run web + API through Turbo
-pnpm dev:web      # run only the Vite web app on port 6900
-pnpm dev:api      # run only the Nitro API on port 6969
-pnpm dev:desktop  # run the Tauri desktop app
-pnpm build        # build workspaces through Turbo
-pnpm test         # run workspace tests
-pnpm lint         # run Oxlint
-pnpm format       # check formatting with Oxfmt
-pnpm typecheck    # run workspace typechecks
-pnpm check        # write formatting/import fixes, then run Oxlint with --fix
+pnpm dev                    # run web + API through Turbo
+pnpm dev:web                # run only the Vite web app on port 6900
+pnpm dev:api                # run only the Nitro API on port 6969
+pnpm dev:desktop            # run the Tauri desktop app
+pnpm build:desktop:install  # build and install Taskbit.app to /Applications
+pnpm build                  # build workspaces through Turbo
+pnpm test                   # run workspace tests
+pnpm lint                   # run Oxlint
+pnpm format                 # check formatting with Oxfmt
+pnpm typecheck              # run workspace typechecks
+pnpm check                  # write formatting/import fixes, then run Oxlint with --fix
 ```
 
 ## Project Structure

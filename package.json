@@ -8,6 +8,7 @@
     "dev:web": "pnpm --filter @taskbit/web dev",
     "dev:api": "pnpm --filter @taskbit/api dev",
     "dev:desktop": "pnpm --filter @taskbit/desktop dev",
+    "build:desktop:install": "pnpm --filter @taskbit/desktop build:install",
     "build": "turbo run build",
     "test": "turbo run test",
     "lint": "turbo run lint",

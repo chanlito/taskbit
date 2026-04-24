@@ -12,6 +12,8 @@ Use desktop build for Tauri config/bundling changes or final verification, not a
 | ---------- | --------------------------------------------------------------- |
 | Dev        | `pnpm --filter @taskbit/desktop dev`                            |
 | Build      | `pnpm --filter @taskbit/desktop build`                          |
+| Install    | `pnpm --filter @taskbit/desktop build:install`                  |
+| Test       | `pnpm --filter @taskbit/desktop test`                           |
 | Rust check | `cargo check --manifest-path apps/desktop/src-tauri/Cargo.toml` |
 
 ## Development Workflow
@@ -19,6 +21,7 @@ Use desktop build for Tauri config/bundling changes or final verification, not a
 - Prefer `cargo check --manifest-path apps/desktop/src-tauri/Cargo.toml` for Rust-only changes
 - Do not run root commands from here unless the change affects another workspace or shared config
 - Run `pnpm --filter @taskbit/desktop build` only when Tauri bundling/config changed or before final handoff
+- Use `pnpm --filter @taskbit/desktop build:install` when the built macOS app should replace `/Applications/Taskbit.app`
 
 ## Key Conventions
 

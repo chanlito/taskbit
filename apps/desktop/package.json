@@ -4,7 +4,10 @@
   "type": "module",
   "scripts": {
     "dev": "tauri dev",
-    "build": "tauri build"
+    "build": "tauri build",
+    "build:install": "pnpm build && pnpm install:app",
+    "install:app": "node ./scripts/install-app.mjs",
+    "test": "node --test ./scripts/*.test.mjs"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^2.10.1"

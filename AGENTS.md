@@ -18,17 +18,18 @@
 
 Use these for final verification or cross-workspace changes, not after every edit.
 
-| Task          | Command            |
-| ------------- | ------------------ |
-| Web + API dev | `pnpm dev`         |
-| Web only      | `pnpm dev:web`     |
-| API only      | `pnpm dev:api`     |
-| Desktop       | `pnpm dev:desktop` |
-| Build         | `pnpm build`       |
-| Test          | `pnpm test`        |
-| Lint          | `pnpm lint`        |
-| Format check  | `pnpm format`      |
-| Typecheck     | `pnpm typecheck`   |
+| Task            | Command                        |
+| --------------- | ------------------------------ |
+| Web + API dev   | `pnpm dev`                     |
+| Web only        | `pnpm dev:web`                 |
+| API only        | `pnpm dev:api`                 |
+| Desktop         | `pnpm dev:desktop`             |
+| Desktop install | `pnpm build:desktop:install`   |
+| Build           | `pnpm build`                   |
+| Test            | `pnpm test`                    |
+| Lint            | `pnpm lint`                    |
+| Format check    | `pnpm format`                  |
+| Typecheck       | `pnpm typecheck`               |
 
 ## File-Scoped Commands
 
