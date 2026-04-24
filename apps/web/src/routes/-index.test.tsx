@@ -22,8 +22,8 @@ describe('home route', () => {
     expect(
       screen.getByText(/Capture issues, tasks, release checks, and product feedback/i),
     ).toBeTruthy()
-    expect(screen.getByRole('button', { name: `Learn about ${appConfig.title}` })).toBeTruthy()
-    expect(screen.getAllByRole('button', { name: 'Open app preview' })).toHaveLength(2)
+    expect(screen.getByRole('link', { name: `Learn about ${appConfig.title}` })).toBeTruthy()
+    expect(screen.getAllByRole('link', { name: 'Open app preview' })).toHaveLength(2)
   })
 
   it('renders a static workflow preview and sample metrics', async () => {
