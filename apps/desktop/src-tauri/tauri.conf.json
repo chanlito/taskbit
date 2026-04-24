@@ -6,7 +6,7 @@
   "build": {
     "beforeDevCommand": "pnpm --filter @taskbit/web dev",
     "beforeBuildCommand": "pnpm --filter @taskbit/web build",
-    "devUrl": "http://localhost:6900",
+    "devUrl": "http://localhost:6900/app",
     "frontendDist": "../../web/dist"
   },
   "app": {

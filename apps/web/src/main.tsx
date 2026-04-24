@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider } from '@tanstack/react-router'
 
 import { getRouter } from './router'
+import { syncDesktopEntry } from './utils/desktop-entry'
 
+syncDesktopEntry()
 const router = getRouter()
 
 const rootElement = document.getElementById('app')!
