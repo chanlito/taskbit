@@ -29,5 +29,6 @@ Use desktop build for Tauri config/bundling changes or final verification, not a
 - `devUrl` points to `http://localhost:6900`
 - `frontendDist` points to `../../web/dist`
 - Desktop reuses `apps/web`; do not add another frontend surface here
+- Keep Tauri icons desktop-only; do not generate or commit `src-tauri/icons/ios/` or `src-tauri/icons/android/`
 - Keep Rust code under `src-tauri/src/`
 - Do not commit `src-tauri/target/`
