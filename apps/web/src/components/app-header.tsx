@@ -10,7 +10,7 @@ const activeNavLinkClassName = `${navLinkClassName} bg-slate-100 text-slate-950`
 export function MarketingHeader() {
   return (
     <header className="border-b border-slate-200 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
         <Link to="/" className="flex items-center gap-3 text-lg font-semibold text-slate-950">
           <span
             aria-hidden="true"
@@ -20,7 +20,7 @@ export function MarketingHeader() {
           </span>
           <span>{appConfig.title}</span>
         </Link>
-        <nav className="flex items-center gap-1">
+        <nav className="flex flex-wrap items-center gap-1">
           {appConfig.marketingNavLinks.map((navLink) => {
             const { exact, icon: Icon, label, to } = navLink
 
@@ -37,7 +37,7 @@ export function MarketingHeader() {
               </Link>
             )
           })}
-          <Button asChild size="sm" className="ml-3">
+          <Button asChild size="sm" className="sm:ml-3">
             <Link to="/app">Open app preview</Link>
           </Button>
         </nav>
